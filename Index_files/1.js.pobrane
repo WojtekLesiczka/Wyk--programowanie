@@ -1,0 +1,18 @@
+//a)
+var a=10;
+var b=20;
+let add=a+b;
+let sub=b-a;
+let nul=a*b;
+let div=b/a;
+let mod= b%a;
+
+console.log(add);
+console.log(sub);
+console.log("wynik mnożenia to:"+nul);
+console.log(div);
+console.log(mod);
+
+
+//b)
+document.getElementById("addr").innerHTML=add;
