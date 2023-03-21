@@ -72,6 +72,10 @@ section{
 article-element{
 width: 50%;
 
+}
 
-
+footer{
+    text-align: center;
+    background-color: lightgray;
+    height: 100px;
 }
