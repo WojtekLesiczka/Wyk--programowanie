@@ -50,7 +50,10 @@ console.log(wiekszy_prostokat.nazwa);
 </script>
 </body>
 </html> -->
+
+
 <!-- Zad2 -->
+
 <!-- <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -92,8 +95,10 @@ console.log(`Trójkąt o większym polu to: ${porownanie.nazwa}`);
 </script>
 </body>
 </html> -->
+
 <!-- //zad3 -->
-<!DOCTYPE html>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -102,6 +107,136 @@ console.log(`Trójkąt o większym polu to: ${porownanie.nazwa}`);
     <title>Lab6</title>
 </head>
 <body>
-    class trapez
+    <script>
+        class Trapez{
+            constructor(wysokosc, podstawa1, podstawa2, nazwa) {
+                this.wysokosc = wysokosc;
+                this.podstawa1 = podstawa1;
+                this.podstawa2 = podstawa2;
+                this.nazwa = nazwa;
+            }
+
+            poletrapezu() {
+                return ((this.podstawa1 + this.podstawa2) / 2) * this.wysokosc;
+            }
+        }
+
+        const trap1 = new Trapez(3, 5, 6, "Trapez1");
+        const trap2 = new Trapez(33, 52, 5, "Trapez2");
+        const trap3 = new Trapez(7, 5, 2, "Trapez3");
+
+        console.log(`Pole ${trap1.nazwa}: ${trap1.poletrapezu()}`);
+        console.log(`Pole ${trap2.nazwa}: ${trap2.poletrapezu()}`);
+        console.log(`Pole ${trap3.nazwa}: ${trap3.poletrapezu()}`);
+    </script>   
+</body>
+</html> -->
+
+<!-- zad4 -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ <script>
+  function znajdzNajwiekszaFigure(prostokat, trojkat, trapez){
+    const poleProstokata = prostokat.szerokosc * prostokat.wysokosc;
+    const poleTrojkata = (trojkat.podstawa*trojkat.wysokosc)/2;
+    const poleTrapezu = ((trapez.podstawa1+trapez.podstawa2)/2) * trapez.wysokosc;
+
+    let najwiekszePole = poleProstokata;
+    let nazwaNajwiekszejFigury = "Prostokąt";
+
+    if (poleTrojkata > najwiekszePole){
+      najwiekszePole = poleTrojkata;
+      nazwaNajwiekszejFigury = "Trójkąt";
+    }
+
+    if (poleTrapezu > najwiekszePole){
+      najwiekszePole = poleTrapezu;
+      nazwaNajwiekszejFigury = "Trapez";
+    }
+
+    console.log(`Największa figura to ${nazwaNajwiekszejFigury} o polu ${najwiekszePole}`);
+
+  }
+
+  const prostokat = { szerokosc: 5, wysokosc: 10 };
+  const trojkat = { podstawa: 8, wysokosc: 6 };
+  const trapez = { podstawa1: 4, podstawa2: 10, wysokosc: 7 };
+
+  znajdzNajwiekszaFigure(prostokat, trojkat, trapez);
+ </script> 
+</body>
+</html> -->
+
+
+<!-- zad 5 -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function znajdznajwiekszepoleptostokata(prostokat1, prostokat2){
+      const poleprostokata1 = prostokat1.podstawa * prostokat1.szerokosc;
+      const poleprostokata2 = prostokat2.podstawa * prostokat2.szerokosc;
+      
+      let najwiekszePole = poleprostokata1;
+      let nazwaNajwiekszejFigury = "Prostokąt 1";
+
+      if (poleprostokata1 > najwiekszePole){
+        najwiekszePole = poleprostokata1; 
+        nazwaNajwiekszejFigury = "Prostokąt 1"
+      }
+      if (poleprostokata2 > najwiekszePole){
+        najwiekszePole = poleprostokata2;
+        nazwaNajwiekszejFigury = "Prostokąt 2";
+      }
+      console.log(`Największa figura to ${nazwaNajwiekszejFigury} o polu ${najwiekszePole}`);
+    }
+
+    
+    const prostokat1 = { podstawa: 5, szerokosc: 3 };
+    const prostokat2 = { podstawa: 4, szerokosc: 4 };
+    znajdznajwiekszepoleptostokata(prostokat1, prostokat2);
+  </script>
+</body>
+</html> -->
+
+<!-- Zad6 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+function zmienNazweProstokata(prostokat, nowaNazwa) {
+  prostokat.nazwa = nowaNazwa;
+  return prostokat;
+  }
+  let prostokat = { nazwa: "Prostokąt 1", podstawa: 4, wysokosc: 3 };
+  console.log("Stara nazwa prostokąta: " + prostokat.nazwa);
+  zmienNazweProstokata(prostokat, "Nowy prostokąt");
+  console.log("Nowa nazwa prostokąta: " + prostokat.nazwa);
+
+
+  </script>
 </body>
 </html>
