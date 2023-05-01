@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const liczby = [3, 8, 2, 5, 10, 7, 1, 6];
+
+        // zsumowanie wartości
+        const suma = liczby.reduce((acc, curr) => acc + curr, 0);
+        console.log("Suma wartości: ", suma);
+
+        // liczby parzyste
+        const parzyste = liczby.filter((liczba) => liczba % 2 === 0);
+        console.log("Liczby parzyste: ", parzyste);
+
+        // pomnożenie wartości razy 3
+        const pomnozone = liczby.map((liczba) => liczba * 3);
+        console.log("Wartości pomnożone razy 3: ", pomnozone);
+
+        // dodanie do tablicy numeru albumu
+        const numerAlbumu = "67249";
+        liczby.push(numerAlbumu);
+        const indexNumeruAlbumu = liczby.indexOf(numerAlbumu);
+        console.log("Numer albumu znajduje się pod indexem: ", indexNumeruAlbumu);
+
+        // średnia arytmetyczna
+        const srednia = suma / liczby.length;
+        console.log("Średnia arytmetyczna: ", srednia);
+
+        // największa wartość
+        const najwieksza = Math.max(...liczby);
+        console.log("Największa wartość: ", najwieksza);
+
+        // zliczanie wystąpień wybranej wartości
+        const wartosc = 5;
+        const wystapienia = liczby.filter((liczba) => liczba === wartosc).length;
+        console.log(`Wartość ${wartosc} występuje ${wystapienia} razy.`);
+
+
+
+
+    </script>
+</body>
+</html>
