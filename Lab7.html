@@ -1,0 +1,367 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: auto;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+    </style>
+
+</head>
+<body>
+    <form>
+        <label for="firstName">Imię:</label>
+        <input type="text" id="firstName" name="firstName" required ><br>
+  
+        <label for="lastName">Nazwisko:</label>
+        <input type="text" id="lastName" name="lastName" required ><br>
+  
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required ><br>
+  
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" name="password" minlength="8" required><br>
+  
+        <label>Płeć:</label>
+        <input type="radio" id="male" name="gender" value="male" required >
+        <label for="male">Mężczyzna</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Kobieta</label>
+        <input type="radio" id="other" name="gender" value="other" required>
+        <label for="other">Inna</label><br>
+  
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" name="phone" required ><br>
+  
+        <label for="birthdate">Data urodzenia:</label>
+        <input type="date" id="birthdate" name="birthdate" required ><br>
+  
+        <label for="country">Kraj:</label>
+        <input type="text" id="country" name="country" required ><br>
+  
+        <input type="submit" value="Zapisz" ><br>
+      </form>
+</body>
+</html> -->
+
+
+<!-- Zad.2. -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: auto;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+    </style>
+
+</head>
+<body>
+    <script>
+        function validateForm() {
+        var firstName = document.getElementById("firstName").value;
+        var lastName = document.getElementById("lastName").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var gender = document.querySelector('input[name="gender"]:checked');
+        var phone = document.getElementById("phone").value;
+        var birthdate = document.getElementById("birthdate").value;
+        var country = document.getElementById("country").value;
+        
+        var isValid = true;
+        
+        if (firstName === "") {
+            document.getElementById("firstName").setCustomValidity("Proszę podać imię.");
+            isValid = false;
+        } else {
+            document.getElementById("firstName").setCustomValidity("");
+        }
+        
+        if (lastName === "") {
+            document.getElementById("lastName").setCustomValidity("Proszę podać nazwisko.");
+            isValid = false;
+        } else {
+            document.getElementById("lastName").setCustomValidity("");
+        }
+        
+        if (email === "") {
+            document.getElementById("email").setCustomValidity("Proszę podać adres email.");
+            isValid = false;
+        } else if (!isValidEmail(email)) {
+            document.getElementById("email").setCustomValidity("Nieprawidłowy adres email.");
+            isValid = false;
+        } else {
+            document.getElementById("email").setCustomValidity("");
+        }
+        
+        if (password === "") {
+            document.getElementById("password").setCustomValidity("Proszę podać hasło.");
+            isValid = false;
+        } else if (password.length < 8) {
+            document.getElementById("password").setCustomValidity("Hasło powinno mieć co najmniej 8 znaków.");
+            isValid = false;
+        } else {
+            document.getElementById("password").setCustomValidity("");
+        }
+        
+        if (gender === null) {
+            document.getElementById("genderError").innerHTML = "Proszę wybrać płeć.";
+            isValid = false;
+        } else {
+            document.getElementById("genderError").innerHTML = "";
+        }
+        
+        if (phone === "") {
+            document.getElementById("phone").setCustomValidity("Proszę podać numer telefonu.");
+            isValid = false;
+        } else {
+            document.getElementById("phone").setCustomValidity("");
+        }
+        
+        if (birthdate === "") {
+            document.getElementById("birthdate").setCustomValidity("Proszę podać datę urodzenia.");
+            isValid = false;
+        } else {
+            document.getElementById("birthdate").setCustomValidity("");
+        }
+        
+        if (country === "") {
+            document.getElementById("country").setCustomValidity("Proszę podać kraj.");
+            isValid = false;
+        } else {
+            document.getElementById("country").setCustomValidity("");
+        }
+        
+        if (isValid) {
+            alert("Formularz został poprawnie wypełniony.");
+        }
+        }
+
+        function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+        }
+
+        document.getElementById("submitBtn").addEventListener("click", validateForm);
+
+    </script>
+
+
+
+    <form>
+        <label for="firstName">Imię:</label>
+        <input type="text" id="firstName" name="firstName" required ><br>
+  
+        <label for="lastName">Nazwisko:</label>
+        <input type="text" id="lastName" name="lastName" required ><br>
+  
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required ><br>
+  
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" name="password" minlength="8" required><br>
+  
+        <label>Płeć:</label>
+        <input type="radio" id="male" name="gender" value="male" required >
+        <label for="male">Mężczyzna</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Kobieta</label><br>
+        <br>
+        
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" name="phone" required ><br>
+  
+        <label for="birthdate">Data urodzenia:</label>
+        <input type="date" id="birthdate" name="birthdate" required ><br>
+  
+        <label for="country">Kraj:</label>
+        <input type="text" id="country" name="country" required ><br>
+  
+        <input type="submit" value="Zapisz" ><br>
+      </form>
+</body>
+</html> -->
+
+<!-- Zad.3. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: auto;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="date"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+    </style>
+
+</head>
+<body>
+    <script>
+        function validateForm() {
+        var firstName = document.getElementById("firstName").value;
+        var lastName = document.getElementById("lastName").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var gender = document.querySelector('input[name="gender"]:checked');
+        var phone = document.getElementById("phone").value;
+        var birthdate = document.getElementById("birthdate").value;
+        var country = document.getElementById("country").value;
+
+        var isValid = true;
+
+        if (firstName === "") {
+            document.getElementById("firstNameError").innerHTML = "Proszę podać imię.";
+            isValid = false;
+        } else {
+            document.getElementById("firstNameError").innerHTML = "";
+        }
+
+        if (lastName === "") {
+            document.getElementById("lastNameError").innerHTML = "Proszę podać nazwisko.";
+            isValid = false;
+        } else {
+            document.getElementById("lastNameError").innerHTML = "";
+        }
+
+        if (email === "") {
+            document.getElementById("emailError").innerHTML = "Proszę podać adres email.";
+            isValid = false;
+        } else if (!isValidEmail(email)) {
+
