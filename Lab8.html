@@ -1,0 +1,227 @@
+<!-- Zad 1,2  -->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form .control {
+            margin-bottom: 15px;
+            width: 96%;
+        }
+
+        .form input[type="text"],
+        .form input[type="email"],
+        .form input[type="password"],
+        .form input[type="tel"],
+        .form input[type="date"],
+        .form select {
+            width: 96%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .form input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: -10px;
+        }
+
+        .form #wojewodztwo-text {
+            display: none;
+        }
+
+        .form #adres-korespondencyjny-wrapper {
+            display: none;
+        }
+        input{
+            background-color: rgb(212, 208, 208);
+            
+        }
+        select{
+            background-color: rgb(212, 208, 208) ;
+        }
+        
+        .form input[type="radio"] {
+            display: flex;
+        }
+
+        .form .radio-label {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+
+        .form .radio-label:hover {
+            background-color: #e0e0e0;
+        }
+
+        .form .radio-label.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form" name="form" method="post" novalidate>
+        <div class="control">
+            <label>Imie</label>
+            <input type="text" name="name">
+            <span class="error"></span>
+        </div>
+        <div class="control">
+            <label>Nazwisko </label>
+            <input type="text" name="surname">
+            <span class="error"></span>
+        </div>
+        <div class="control">
+            <label>Email: </label>
+            <input type="text" name="email">
+            <span class="error"></span>
+        </div>
+        <div class="control">
+            <label>Hasło: </label>
+            <input type="password" name="password">
+            <span class="error"></span>
+        </div>
+        <div class="control">
+            <label>Potwórz Hasło: </label>
+            <input type="password" name="confirm-password">
+            <span class="error"></span>
+        </div>
+        <div class="control">
+            <label>Płeć:</label>
+            <div>
+                <input type="radio" id="m" name="sex" value="m">
+                <label for="m">M</label>
+                <input type="radio" id="k" name="sex" value="k">
+                <label for="k">K</label>
+            </div>
+            <span class="sex error"></span>
+        </div>
+        <!-- zad3 -->
+        <div class="control">
+            <label>Telefon: </label>
+            <input type="text" name="phone" oninput="telefonik(this)">
+            <span class="error"></span>
+        </div>
+        <div class="control">
+            <label>Data urodzenia: </label>
+            <input type="date" name="birthDate">
+            <span class="error"></span>
+        </div>
+        <!-- <div class="control">
+            <label>Kraj:</label> -->
+            <!-- zad1 -->
+            <!-- <select name="country" onchange="enableProvinceField()">
+                <option></option>
+                <option value="Polska">Polska</option>
+                <option value="Ukraina">Ukraina</option>
+                <option value="Litwa">Litwa</option>
+                <option value="Niemcy">Niemcy</option>
+            </select>
+            <span class="error"></span>
+        </div> -->
+        <!-- Zad2 -->
+        <div class="control">
+            <label>Kraj:</label>
+            <select name="country" onchange="toggleProvinceField()">
+                <option></option>
+                <option value="Polska">Polska</option>
+                <option value="Ukraina">Ukraina</option>
+                <option value="Litwa">Litwa</option>
+                <option value="Niemcy">Niemcy</option>
+            </select>
+            <span class="error"></span>
+        </div>
+        
+        <div class="control" id="wojewodztwo-control">
+            <label>Województwo:</label>
+            <select id="wojewodztwo" name="wojewodztwo" disabled>
+                <option value="">Wybierz województwo</option>
+                <option value="dolnośląskie">Dolnośląskie</option>
+                <option value="kujawsko-pomorskie">Kujawsko-pomorskie</option>
+                <option value="lubelskie">Lubelskie</option>
+                <option value="lubuskie">Lubuskie</option>
+                <option value="łódzkie">Łódzkie</option>
+                <option value="małopolskie">Małopolskie</option>
+                <option value="mazowieckie">Mazowieckie</option>
+                <option value="opolskie">Opolskie</option>
+                <option value="podkarpackie">Podkarpackie</option>
+                <option value="podlaskie">Podlaskie</option>
+                <option value="pomorskie">Pomorskie</option>
+                <option value="śląskie">Śląskie</option>
+                <option value="świętokrzyskie">Świętokrzyskie</option>
+                <option value="warmińsko-mazurskie">Warmińsko-mazurskie</option>
+                <option value="wielkopolskie">Wielkopolskie</option>
+                <option value="zachodniopomorskie">Zachodniopomorskie</option>
+            </select>
+            <input type="text" id="wojewodztwo-text" name="wojewodztwo" style="display: none;" disabled>
+        </div>
+        
+    
+        <div class="control">
+            <label>Adres zamieszkania:</label>
+            <input type="text" id="adres-zamieszkania" name="adres-zamieszkania" disabled>
+        </div>
+    
+        <div class="control">
+            <label>Adres korespondencyjny jest taki sam jak adres zamieszkania</label>
+            <input type="checkbox" id="adres-korespondencyjny-checkbox" name="adres-korespondencyjny-checkbox" checked
+                   onclick="toggleCorrespondenceAddress()">
+        </div>
+        <div id="adres-korespondencyjny-wrapper" style="display: none">
+            <label>Adres korespondencyjny:</label>
+            <input type="text" id="adres-korespondencyjny" name="adres-korespondencyjny" disabled>
+        </div>
+        <div class="control actions">
+            <input type="submit" value="Zapisz">
+        </div>
+    </form>
+
+    <script type="text/javascript" src="lab7.js">
+    </script>
+</body>
+
+</html>
