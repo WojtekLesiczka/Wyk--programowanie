@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Kalkulator wynagrodzenia</title>
+  <link rel="stylesheet" type="text/css" href="lab9css.css">
+  <script src="calculator.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Prosty Serwis Internetowy</h1>
+    <nav>
+      <a href="lab9logowanie.html">Logowanie</a>
+      <a href="lab9rejstracja.html">Rejestracja</a>
+      <a href="lab9kalkulator.html">Kalkulator wynagrodzenia</a>
+      <a href="Lab9Powtórzenie.html">Strona główna</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Kalkulator wynagrodzenia</h2>
+    <label for="monthlyRate">Stawka miesięczna:</label>
+    <input type="number" id="monthlyRate" step="0.01">
+    <label for="hourlyRate">Stawka godzinowa:</label>
+    <input type="number" id="hourlyRate" step="0.01">
+    <button id="calculateButton">Oblicz</button>
+    <p id="result"></p>
+  </section>
+
+  <footer>
+    <p>Wojciech Lesiczka</p>
+  </footer>
+</body>
+</html>
